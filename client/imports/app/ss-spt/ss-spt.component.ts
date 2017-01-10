@@ -7,10 +7,12 @@ import { MeteorObservable } from 'meteor-rxjs';
 // import { Party } from '../../../../both/models/party.model';
 
 import template from './ss-spt.component.html';
+import style from './ss-spt.component.scss';
 
 @Component({
   selector: 'ss-spt',
-  template
+  template,
+  styles: [ style ]
 })
 export class SSSPT implements OnInit, OnDestroy {
   // parties: Observable<Party[]>;
