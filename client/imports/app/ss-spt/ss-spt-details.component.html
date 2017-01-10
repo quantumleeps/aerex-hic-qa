@@ -3,33 +3,159 @@
   <!-- these next two boxes carry through to multiple tabs -->
   <div class="container">
     <span id="client-name-box"><b>Client: </b> {{ssSptRecord.client}}</span>
-    <span id="client-po-num-box"><b>Client PO #: </b> NAS-23553</span>
+    <span id="client-po-num-box"><b>Client PO #: </b> {{ssSptRecord.clientPONum}}</span>
     <br>
     <!-- these next boxes all are specific to this drawing and part # -->
-    <span id="item-descrip-box"><b>Item Description: </b> This thing that's being made</span>
+    <span id="item-descrip-box"><b>Item Description: </b> {{ssSptRecord.itemDescrip}}</span>
     <br>
-    <span id="client-draw-num-box"><b>Client Draw #: </b> RES-2445</span>
-    <span id="client-draw-rev-box"><b>Rev: </b> A</span>
-    <span id="client-spec-num-box"><b>Client Spec #: </b> ASTM-4322</span>
-    <span id="client-spec-rev-box"><b>Rev: </b> 2006</span>
+    <span id="client-draw-num-box"><b>Client Draw #: </b> {{ssSptRecord.clientDrawNum}}</span>
+    <span id="client-draw-rev-box"><b>Rev: </b> {{ssSptRecord.clientDrawRev}}</span>
+    <span id="client-spec-num-box"><b>Client Spec #: </b> {{ssSptRecord.clientSpecNum}}</span>
+    <span id="client-spec-rev-box"><b>Rev: </b> {{ssSptRecord.clientSpecRev}}</span>
     <br>
-    <span id="aerex-draw-num-box"><b>Client Draw #: </b> LE12-2455 Water</span>
-    <span id="aerex-draw-rev-box"><b>Rev: </b> 0</span>
-    <span id="aerex-spec-num-box"><b>Client Spec #: </b> ASTM-4322</span>
-    <span id="aerex-spec-rev-box"><b>Rev: </b> 2009</span>
+    <span id="aerex-draw-num-box"><b>Client Draw #: </b> {{ssSptRecord.aerexDrawNum}}</span>
+    <span id="aerex-draw-rev-box"><b>Rev: </b> {{ssSptRecord.aerexDrawRev}}</span>
+    <span id="aerex-spec-num-box"><b>Client Spec #: </b> {{ssSptRecord.aerexSpecNum}}</span>
+    <span id="aerex-spec-rev-box"><b>Rev: </b> {{ssSptRecord.aerexSpecRev}}</span>
     <br>
-    <span id="part-serial-num"><b>Serial / Part #: </b> 249543-4922</span>
+    <span id="part-serial-num"><b>Serial / Part #: </b> {{ssSptRecord.serialNum}}</span>
+    <br><button>Edit</button>
     <br>
+    <br>
+    <h3 class="text-center">MATERIALS REQUIRED</h3>
+    <div class="row">
+      <div class="col-sm-2"><b>Welder #</b></div>
+      <div class="col-sm-4"><b>Serial Number</b></div>
+      <div class="col-sm-6"><b>Part / Item Description</b></div>
+    </div>
+    <div class="row" *ngFor="let material of ssSptRecord.materials">
+      <div class="col-sm-2">{{material.quantity}}</div>
+      <div class="col-sm-4">{{material.serialNumber}}</div>
+      <div class="col-sm-6">{{material.description}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12"><button>Add material</button></div>
+    </div>
+    <br>
+
+    <h3 class="text-center">WELDING WIRE IDENTIFICATION</h3>
+    <div class="row">
+      <div class="col-sm-2"><b>Welder #</b></div>
+      <div class="col-sm-4"><b>Heat #</b></div>
+    </div>
+    <div class="row" *ngFor="let weldingWire of ssSptRecord.weldingWires">
+      <div class="col-sm-2">{{weldingWire.welderNum}}</div>
+      <div class="col-sm-4">{{weldingWire.heatNum}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12"><button>Add welding wire</button></div>
+    </div>
+    <br>
+
+    <h3 class="text-center">VISUAL EXAMINATION</h3>
+    <span><b>Aerex Proc. #: </b> {{ssSptRecord.visualExamResult.procedureNum}}</span>
+    <span><b>Rev: </b> {{ssSptRecord.visualExamResult.procedureRev}}</span>
+    <br>
+    <span><b>Acceptance Code/Standard: </b> {{ssSptRecord.visualExamResult.acceptanceCode}}</span>
+    <br>
+    <button>Edit</button>
+    <br>
+    <br>
+    <h3 class="text-center">PENETRANT EXAMINATION</h3>
+    <span><b>Aerex Proc. #: </b> {{ssSptRecord.penetrantExamResult.procedureNum}}</span>
+    <span><b>Rev: </b> {{ssSptRecord.penetrantExamResult.procedureRev}}</span>
+    <br>
+    <span><b>Acceptance Code/Standard: </b> {{ssSptRecord.penetrantExamResult.acceptanceCode}}</span>
+    <br>
+    <button>Edit</button>
+    <br>
+    <br>
+    <h3 class="text-center">HYDROSTATIC EXAMINATION</h3>
+    <span><b>Aerex Proc. #: </b> {{ssSptRecord.hydrostaticExamResult.procedureNum}}</span>
+    <span><b>Rev: </b> {{ssSptRecord.hydrostaticExamResult.procedureRev}}</span>
+    <br>
+    <span><b>Acceptance Code/Standard: </b> {{ssSptRecord.hydrostaticExamResult.acceptanceCode}}</span>
+    <br>
+    <span><b>Design Pressure (PSI): </b> {{ssSptRecord.hydrostaticExamResult.designPressure}}</span>
+    <span><b>Design Temperature (°F): </b> {{ssSptRecord.hydrostaticExamResult.designTemperature}}</span>
+    <span><b>Test Duration (Min): </b> {{ssSptRecord.hydrostaticExamResult.testDuration}}</span>
+    <br>
+    <button>Edit</button>
+    <br>
+    <br>
+    <h3 class="text-center">LOAD TEST EXAMINATION</h3>
+    <span><b>Aerex Proc. #: </b> {{ssSptRecord.loadTestExamResult.procedureNum}}</span>
+    <span><b>Rev: </b> {{ssSptRecord.loadTestExamResult.procedureRev}}</span>
+    <br>
+    <span><b>Acceptance Code/Standard: </b> {{ssSptRecord.loadTestExamResult.acceptanceCode}}</span>
+    <br>
+    <span><b>Design Load (Lbs.): </b> {{ssSptRecord.loadTestExamResult.designLoad}}</span>
+    <span><b>Test Duration (Min): </b> {{ssSptRecord.loadTestExamResult.testDuration}}</span>
+    <br>
+    <button>Edit</button>
+    <br>
+    <br>
+    <h3 class="text-center">DIMENSIONAL INSPECTION</h3>
+    <span><b>Aerex Proc. #: </b> {{ssSptRecord.dimensionalExamResult.procedureNum}}</span>
+    <span><b>Rev: </b> {{ssSptRecord.dimensionalExamResult.procedureRev}}</span>
+    <br>
+    <button>Edit</button>
+    <div class="row">
+      <div class="col-sm-4"><b>Part Inspected or Drawing Zone</b></div>
+      <div class="col-sm-4"><b>Drawing Dimension</b></div>
+      <div class="col-sm-4"><b>Dimensional Tolerance</b></div>
+    </div>
+    <div class="row" *ngFor="let dimensionalCheck of ssSptRecord.dimensionalExamResult.dimensionalChecks">
+      <div class="col-sm-4">{{dimensionalCheck.inspectedPart}}</div>
+      <div class="col-sm-4">{{dimensionalCheck.drawingDim}}</div>
+      <div class="col-sm-4">{{dimensionalCheck.dimTolerance}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12"><button>Add dimension</button></div>
+    </div>
+    <br>
+    <br>
+    <h3 class="text-center">WELD MAP</h3>
+    <div class="row">
+      <div class="col-sm-1 vertic"><b>Name</b></div>
+      <div class="col-sm-1 vertic"><b>Fit Up</b></div>
+      <div class="col-sm-1 vertic"><b>Root Pass</b></div>
+      <div class="col-sm-1 vertic"><b>Hot Pass</b></div>
+      <div class="col-sm-1 vertic"><b>Final Weld</b></div>
+      <div class="col-sm-1 vertic"><b>In Process</b></div>
+      <div class="col-sm-1 vertic"><b>Final</b></div>
+      <div class="col-sm-1 vertic"><b>Pre</b></div>
+      <div class="col-sm-1 vertic"><b>Post</b></div>
+      <div class="col-sm-1 vertic"><b>Load Test Exam</b></div>
+      <div class="col-sm-1 vertic"><b>Welder Stamp #</b></div>
+      <div class="col-sm-1 vertic"><b>Other/Remarks</b></div>
+    </div>
+    <div class="row" *ngFor="let weldMap of ssSptRecord.weldMaps">
+      <div class="col-sm-1 boxy">{{weldMap.name}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.fitUpBool}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.rootPassBool}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.hotPassBool}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.finalWeldBool}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.visExamInProcess}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.visExamFinal}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.penExamPre}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.penExamPost}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.loadTestExam}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.welderStampNum}}</div>
+      <div class="col-sm-1 boxy">{{weldMap.remarks}}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12"><button>Add weld map row</button></div>
+    </div>
+
+    <br> <b>Notes: </b> {{ssSptRecord.notes}}
+    <br>
+    <span><b> QC Acceptance: </b> {{ssSptRecord.qcAcceptanceSig}}</span>
+    <span><b>Date: </b> {{ssSptRecord.qcAcceptanceDate}}</span>
+
   </div>
-  <br> here you'll have an add welding wire button and list of welding wires
-  <br> here you'll have a visual examination box with fill-in procedure and rev
-  <br> here you'll have a penetrant exam box with fill in stuff
-  <br> here you'll have a hydrostat exam box with fill in stuff
-  <br> here you'll have a load test exam box with fill in stuff
-  <br> here you'll have a dimensional inspection box here you'll have an add part that had dimensional inspection box
-  <br> here you'll have an add weld-map-line button and the list of weld-map-lines
-  <br> <b>Notes: </b> {{ssSptRecord.notes}}
-  <br> here you'll have the qc acceptnace box and date box
-  <br>
+
+
+
 
 </div>
