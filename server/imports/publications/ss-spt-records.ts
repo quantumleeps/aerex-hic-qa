@@ -14,6 +14,7 @@ function buildQuery(recordId?: string): any {
   const isAvailable = {}
 
   if (recordId) {
+    //   console.log('yes there was an id')
     return {
       // only single party
       $and: [{

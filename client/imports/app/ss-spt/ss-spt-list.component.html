@@ -10,7 +10,8 @@ testing
       <!--<p>{{party.description}}</p>-->
       <!--<p>{{party.location}}</p>-->
       <!--<button (click)="removeParty(party)">X</button>-->
-      {{ssSptRecord.client}}<br>
+      
+      <a [routerLink]="['/hic', ssSptRecord._id]">{{ssSptRecord.client}}</a><br>
       {{ssSptRecord.notes}}
     </li>
   </ul>

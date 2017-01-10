@@ -10,6 +10,7 @@ export const routes: Route[] = [
   { path: '', component: PartiesListComponent },
   { path: 'hic/ss-spt', component: SSSPTDetails },
   { path: 'hic/ss-spt-list', component: SSSPTList },
+  { path: 'hic/:ss-spt-id', component: SSSPTDetails },
   { path: 'party/:partyId', component: PartyDetailsComponent, canActivate: ['canActivateForLoggedIn'] }
 ];
 
