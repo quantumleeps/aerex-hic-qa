@@ -6,15 +6,15 @@ import { MeteorObservable } from 'meteor-rxjs';
 // import { Parties } from '../../../../both/collections/parties.collection';
 // import { Party } from '../../../../both/models/party.model';
 
-import template from './ss-spt.component.html';
-import style from './ss-spt.component.scss';
+import template from './ss-spt-details.component.html';
+import style from './ss-spt-details.component.scss';
 
 @Component({
-  selector: 'ss-spt',
+  selector: 'ss-spt-details',
   template,
   styles: [ style ]
 })
-export class SSSPT implements OnInit, OnDestroy {
+export class SSSPTDetails implements OnInit, OnDestroy {
   // parties: Observable<Party[]>;
   // // partiesSub: Subscription;
 

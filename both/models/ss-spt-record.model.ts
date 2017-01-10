@@ -8,24 +8,26 @@ import { WeldMap } from './weld-map.model';
 
 export interface SSSPTRecord extends CollectionObject {
     client: string;
-    clientPONum: string;
-    itemDescrip: string;
-    clientDrawNum: string;
-    clientDrawRev: string;
-    clientSpecNum: string;
-    clientSpecRev: string;
-    aerexDrawNum: string;
-    aerexDrawRev: string;
-    aerexSpecNum: string;
-    aerexSpecRev: string;
-    serialNum: string;
-    weldingWires: WeldingWire[];
-    visualExamResult: VisualExam;
-    penetrantExamResult: PenetrantExam;
-    hydrostaticExamResult: HydrostaticExam;
-    dimensionalExamResult: DimensionalExam;
-    weldMaps: WeldMap[]
+    clientPONum?: string;
+    itemDescrip?: string;
+    clientDrawNum?: string;
+    clientDrawRev?: string;
+    clientSpecNum?: string;
+    clientSpecRev?: string;
+    aerexDrawNum?: string;
+    aerexDrawRev?: string;
+    aerexSpecNum?: string;
+    aerexSpecRev?: string;
+    serialNum?: string;
+    weldingWires?: WeldingWire[];
+    visualExamResult?: VisualExam;
+    penetrantExamResult?: PenetrantExam;
+    hydrostaticExamResult?: HydrostaticExam;
+    dimensionalExamResult?: DimensionalExam;
+    weldMaps?: WeldMap[]
     notes: string;
-    qcAcceptanceSig: string;
-    qcAcceptanceDate: string;
+    qcAcceptanceSig?: string;
+    qcAcceptanceDate?: string;
+    public: boolean;
+    owner?: string;
 }

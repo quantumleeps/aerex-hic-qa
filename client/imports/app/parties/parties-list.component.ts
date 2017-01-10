@@ -19,6 +19,7 @@ export class PartiesListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.parties = Parties.find({}).zone();
     this.partiesSub = MeteorObservable.subscribe('parties').subscribe();
+    console.log(this.parties)
   }
 
   removeParty(party: Party): void {

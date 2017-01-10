@@ -1,0 +1,17 @@
+testing
+
+<div>
+  
+  <login-buttons></login-buttons>
+
+  <ul>
+    <li *ngFor="let ssSptRecord of ssSptRecords | async">
+      <!--<a [routerLink]="['/party', party._id]">{{party.name}}</a>-->
+      <!--<p>{{party.description}}</p>-->
+      <!--<p>{{party.location}}</p>-->
+      <!--<button (click)="removeParty(party)">X</button>-->
+      {{ssSptRecord.client}}<br>
+      {{ssSptRecord.notes}}
+    </li>
+  </ul>
+</div>
